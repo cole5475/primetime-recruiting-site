@@ -9,6 +9,7 @@ import statesTopo from 'us-atlas/states-10m.json';
 import countiesTopo from 'us-atlas/counties-10m.json';
 import {
   FIPS_TO_STATE,
+  LICENSED_STATES,
   getStateStatus,
   getStateStatusLabel,
   type StateStatus,
@@ -94,11 +95,34 @@ function buildStatePaths(): StatePath[] {
 
 const STATE_PATHS = buildStatePaths();
 
+function splitIntoColumns(items: readonly string[], columnCount: number): string[][] {
+  const columns: string[][] = Array.from({ length: columnCount }, () => []);
+  const perColumn = Math.ceil(items.length / columnCount);
+
+  items.forEach((item, index) => {
+    const columnIndex = Math.min(Math.floor(index / perColumn), columnCount - 1);
+    columns[columnIndex].push(item);
+  });
+
+  return columns;
+}
+
+const monoTextStyle = {
+  fontFamily: 'var(--font-ibm-mono)',
+  fontSize: '13px',
+} as const;
+
 export default function LicensedStates() {
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const [hoveredName, setHoveredName] = useState<string | null>(null);
+  const [listExpanded, setListExpanded] = useState(false);
 
   const paths = useMemo(() => STATE_PATHS, []);
+
+  const licensedColumns = useMemo(() => {
+    const sorted = [...LICENSED_STATES].sort((a, b) => a.localeCompare(b));
+    return splitIntoColumns(sorted, 3);
+  }, []);
 
   const handlePointerMove = (
     event: React.PointerEvent<SVGPathElement>,
@@ -188,6 +212,73 @@ export default function LicensedStates() {
             Not yet licensed
           </li>
         </ul>
+
+        <button
+          type="button"
+          aria-expanded={listExpanded}
+          onClick={() => setListExpanded((open) => !open)}
+          style={{
+            display: 'block',
+            margin: '20px auto 0',
+            padding: 0,
+            border: 'none',
+            background: 'none',
+            cursor: 'pointer',
+            color: 'var(--gold)',
+            ...monoTextStyle,
+          }}
+        >
+          {listExpanded ? 'Hide list ↑' : 'View all licensed states ↓'}
+        </button>
+
+        <div
+          style={{
+            maxHeight: listExpanded ? '520px' : '0',
+            overflow: 'hidden',
+            transition: 'max-height 0.4s ease',
+          }}
+        >
+          <div style={{ paddingTop: listExpanded ? '20px' : '0' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                gap: '8px 24px',
+              }}
+            >
+              {licensedColumns.map((column, columnIndex) => (
+                <ul
+                  key={`licensed-col-${columnIndex}`}
+                  style={{ listStyle: 'none', margin: 0, padding: 0 }}
+                >
+                  {column.map((state) => (
+                    <li
+                      key={state}
+                      style={{
+                        ...monoTextStyle,
+                        color: 'var(--text)',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      {state}
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+
+            <p
+              style={{
+                ...monoTextStyle,
+                color: '#4a6080',
+                textAlign: 'center',
+                margin: '20px 0 0',
+              }}
+            >
+              Utah <span style={{ color: '#4a6080' }}>(Pending)</span>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
