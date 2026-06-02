@@ -10,8 +10,9 @@ export default function Footer() {
           <p className="brand-wordmark">PrimeTime</p>
           <p className="brand-sub">A branch powered by Mpire Financial LLC</p>
           <p>
-            A broker shop built like a retail team. Better pricing, better payout, and real support
-            around you.
+            A broker shop built like a retail team. PrimeTime Lending operates as a branch of Mpire
+            Financial LLC, which provides the licensing, infrastructure, and W-2 employment backing
+            every loan we close.
           </p>
         </div>
 

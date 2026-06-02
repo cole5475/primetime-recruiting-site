@@ -10,8 +10,8 @@ export default function FinalCTA() {
             30 minutes. <span className="text-gold">No pressure.</span>
           </h2>
           <p>
-            Bring your last 12 months of production and we&apos;ll map out what this could look like
-            for your pipeline, your comp, and your day-to-day.
+            Bring your last 12 months of production. We&apos;ll run the math live and you&apos;ll know
+            inside half an hour whether the move makes sense for you.
           </p>
 
           <a className="btn btn-gold" href={calendlyUrl} target="_blank" rel="noopener noreferrer">
