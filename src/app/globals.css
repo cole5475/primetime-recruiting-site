@@ -838,6 +838,123 @@ section.block,
   text-align: center;
 }
 
+/* Licensed States */
+.section-states {
+  background: linear-gradient(180deg, var(--bg-elev), var(--bg));
+}
+
+.states-map-wrap {
+  position: relative;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  overflow: hidden;
+}
+
+.states-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.states-path {
+  stroke: var(--border);
+  stroke-width: 0.75px;
+  transition: fill 0.15s ease;
+  cursor: pointer;
+}
+
+.states-path--licensed {
+  fill: rgba(224, 176, 64, 0.3);
+}
+
+.states-path--licensed.states-path--hover {
+  fill: rgba(224, 176, 64, 0.6);
+}
+
+.states-path--pending {
+  fill: rgba(74, 96, 128, 0.4);
+}
+
+.states-path--pending.states-path--hover {
+  fill: rgba(74, 96, 128, 0.65);
+}
+
+.states-path--unlicensed {
+  fill: var(--bg-elev);
+}
+
+.states-path--unlicensed.states-path--hover {
+  fill: var(--bg-elev-2);
+}
+
+.states-map-tooltip {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-50%, calc(-100% - 12px));
+  pointer-events: none;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elev-2);
+  font-family: var(--font-ibm-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.states-map-tooltip strong {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.states-map-tooltip span {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.states-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.states-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-ibm-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.states-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.states-legend-dot--licensed {
+  background: rgba(224, 176, 64, 0.6);
+}
+
+.states-legend-dot--pending {
+  background: rgba(74, 96, 128, 0.65);
+}
+
+.states-legend-dot--unlicensed {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+}
+
 /* Offer */
 .offer-grid {
   display: grid;

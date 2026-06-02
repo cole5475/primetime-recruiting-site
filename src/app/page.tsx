@@ -1,4 +1,5 @@
 import FinalCTA from '@/components/FinalCTA';
+import LicensedStates from '@/components/LicensedStates';
 import Footer from '@/components/Footer';
 import FullStackOps from '@/components/FullStackOps';
 import Hero from '@/components/Hero';
@@ -25,6 +26,7 @@ export default function HomePage() {
         <FullStackOps />
         <MpireU />
         <StraightTalk />
+        <LicensedStates />
         <FinalCTA />
       </main>
       <Footer />

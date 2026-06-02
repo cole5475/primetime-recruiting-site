@@ -7,6 +7,7 @@ const links = [
   { href: '#stack', label: 'The Stack' },
   { href: '#ops', label: 'Ops' },
   { href: '#mpireu', label: 'MpireU' },
+  { href: '#states', label: 'States' },
 ];
 
 export default function Nav() {
