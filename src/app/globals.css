@@ -516,6 +516,150 @@ section.block,
   font-size: 1.05rem;
 }
 
+.math-calculator {
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  overflow: hidden;
+}
+
+.math-calculator-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.math-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.math-field-label {
+  font-family: var(--font-ibm-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.math-field-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-bebas);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.math-field-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.math-field-input::-webkit-outer-spin-button,
+.math-field-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.math-field-input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.math-field-slider-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.math-slider-value {
+  font-family: var(--font-bebas);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.math-slider {
+  width: 100%;
+  height: 6px;
+  margin: 4px 0 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+.math-slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-ibm-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.math-panel-output {
+  margin-top: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.math-calc-value {
+  font-family: var(--font-bebas) !important;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  color: var(--text) !important;
+}
+
+.math-col-gold .math-calc-value {
+  color: var(--gold-bright) !important;
+}
+
+.math-callout-diff {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  border-left: none;
+  border-right: none;
+  margin-top: 0;
+}
+
+.math-diff-value {
+  font-family: var(--font-bebas);
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.math-diff-label {
+  font-family: var(--font-ibm-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.math-calculator-tagline {
+  margin: 0;
+  padding: 20px 24px 24px;
+  text-align: center;
+  font-family: var(--font-ibm-mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  border-top: 1px solid var(--border);
+}
+
 /* Offer */
 .offer-grid {
   display: grid;
@@ -942,6 +1086,10 @@ footer,
     grid-template-columns: 1fr;
   }
 
+  .math-calculator-inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .math-col-divider {
     display: none;
   }
@@ -988,6 +1136,14 @@ footer,
   .math-callout {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .math-calculator-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .math-callout-diff {
+    align-items: center;
   }
 
   .mpireu-access-items,
