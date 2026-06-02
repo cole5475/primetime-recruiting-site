@@ -865,11 +865,11 @@ section.block,
 }
 
 .states-path--licensed {
-  fill: rgba(224, 176, 64, 0.3);
+  fill: rgba(224, 176, 64, 0.6);
 }
 
 .states-path--licensed.states-path--hover {
-  fill: rgba(224, 176, 64, 0.6);
+  fill: rgba(224, 176, 64, 0.85);
 }
 
 .states-path--pending {
