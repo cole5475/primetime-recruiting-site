@@ -28,7 +28,6 @@ export default function Math() {
   const [loanAmount, setLoanAmount] = useState(400_000);
   const [loansPerMonth, setLoansPerMonth] = useState(4);
   const [totalVolume, setTotalVolume] = useState(0);
-  const [totalVolumeInput, setTotalVolumeInput] = useState('');
   const [is1099, setIs1099] = useState(false);
 
   const primeMultiplier = is1099 ? 1 : W2_MULTIPLIER;
@@ -83,6 +82,10 @@ export default function Math() {
     !is1099 && figures.annualVolume > VOLUME_1099_THRESHOLD;
 
   const loanAmountDisplay = loanAmount.toLocaleString('en-US');
+  const totalVolumeDisplay =
+    totalVolume > 0 ? totalVolume.toLocaleString('en-US') : '';
+  const showPerLoan = volumeMode === 'estimate';
+  const primeValueStyle = { color: 'var(--gold)' } as const;
 
   return (
     <section id="math" className="section section-math">
@@ -158,12 +161,9 @@ export default function Math() {
                   <input
                     type="text"
                     inputMode="numeric"
-                    value={totalVolumeInput}
+                    value={totalVolumeDisplay}
                     placeholder="Enter total volume"
-                    onChange={(e) => {
-                      setTotalVolumeInput(e.target.value);
-                      setTotalVolume(parseDollarInput(e.target.value));
-                    }}
+                    onChange={(e) => setTotalVolume(parseDollarInput(e.target.value))}
                     className="math-field-input"
                     aria-label="Last 12 months total volume in dollars"
                   />
@@ -211,12 +211,14 @@ export default function Math() {
             <article className="math-col">
               <h3>Your retail today</h3>
               <ul>
-                <li>
-                  <span>Per loan</span>
-                  <strong className="math-output-retail">
-                    {formatCurrency(figures.retailPerLoan)}
-                  </strong>
-                </li>
+                {showPerLoan && (
+                  <li>
+                    <span>Per loan</span>
+                    <strong className="math-output-retail">
+                      {formatCurrency(figures.retailPerLoan)}
+                    </strong>
+                  </li>
+                )}
                 <li>
                   <span>Per month</span>
                   <strong className="math-output-retail">
@@ -237,21 +239,23 @@ export default function Math() {
             <article className="math-col math-col-gold">
               <h3>PrimeTime</h3>
               <ul>
-                <li>
-                  <span>Per loan</span>
-                  <strong className="math-output-prime">
-                    {formatCurrency(figures.primePerLoan)}
-                  </strong>
-                </li>
+                {showPerLoan && (
+                  <li>
+                    <span>Per loan</span>
+                    <strong className="math-output-prime" style={primeValueStyle}>
+                      {formatCurrency(figures.primePerLoan)}
+                    </strong>
+                  </li>
+                )}
                 <li>
                   <span>Per month</span>
-                  <strong className="math-output-prime">
+                  <strong className="math-output-prime" style={primeValueStyle}>
                     {formatCurrency(figures.primePerMonth)}
                   </strong>
                 </li>
                 <li>
                   <span>Per year</span>
-                  <strong className="math-output-prime">
+                  <strong className="math-output-prime" style={primeValueStyle}>
                     {formatCurrency(figures.primePerYear)}
                   </strong>
                 </li>
