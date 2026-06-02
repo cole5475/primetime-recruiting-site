@@ -36,13 +36,12 @@ export default function MpireU() {
       <div className="container">
         <div className="section-head reveal">
           <p className="eyebrow">Mpire University</p>
-          <h2>
-            From guesswork to <span className="text-gold">gameplan.</span>
-          </h2>
+          <h2>For LOs who are early, stuck, or rebuilding.</h2>
           <p className="lede">
-            A 4–6 week roadmap built by top producers and mortgage industry innovators.
-            Self-paced, instructor-led, with accountability built in. The training that turns a
-            struggling LO into a producer — and a producer into a top one.
+            MpireU isn&apos;t for everyone. It&apos;s built for loan officers who are new to the
+            business, struggling to find consistency, or ready to rebuild with the right system. If
+            you&apos;re already producing at a high level, you&apos;ll skip this and go straight to
+            work. If you&apos;re not — this is the roadmap.
           </p>
         </div>
 

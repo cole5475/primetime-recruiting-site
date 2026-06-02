@@ -1,5 +1,6 @@
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import FullStackOps from '@/components/FullStackOps';
 import Hero from '@/components/Hero';
 import Math from '@/components/Math';
 import MpireU from '@/components/MpireU';
@@ -21,6 +22,7 @@ export default function HomePage() {
         <Math />
         <Offer />
         <Stack />
+        <FullStackOps />
         <MpireU />
         <StraightTalk />
         <FinalCTA />
