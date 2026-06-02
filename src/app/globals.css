@@ -660,6 +660,184 @@ section.block,
   border-top: 1px solid var(--border);
 }
 
+.math-mode-toggle {
+  display: flex;
+  gap: 0;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.math-mode-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-ibm-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.math-mode-btn + .math-mode-btn {
+  border-left: none;
+}
+
+.math-mode-btn--active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+}
+
+.math-calc-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.math-inputs-mode {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  grid-column: 1 / -1;
+}
+
+.math-inputs-mode--actual {
+  grid-template-columns: 1fr;
+}
+
+.math-output-retail {
+  font-family: var(--font-ibm-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.math-output-prime {
+  font-family: var(--font-ibm-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold-bright);
+}
+
+.math-fee-note {
+  margin: 12px 0 0;
+  font-family: var(--font-ibm-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.math-calculator-extras {
+  padding: 0 24px 8px;
+  border-top: 1px solid var(--border);
+}
+
+.math-w2-benefits {
+  margin: 0;
+  padding: 16px 0;
+  font-family: var(--font-ibm-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  text-align: center;
+}
+
+.math-volume-notice {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--gold);
+  background: rgba(224, 176, 64, 0.08);
+  font-family: var(--font-ibm-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+}
+
+.math-1099-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  cursor: pointer;
+}
+
+.math-1099-label {
+  font-family: var(--font-ibm-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.math-1099-switch {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.math-1099-switch-ui {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 26px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.math-1099-switch-ui::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: var(--muted);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.math-1099-switch:checked + .math-1099-switch-ui {
+  background: rgba(224, 176, 64, 0.2);
+  border-color: var(--gold);
+}
+
+.math-1099-switch:checked + .math-1099-switch-ui::after {
+  transform: translateX(22px);
+  background: var(--gold);
+}
+
+.math-1099-switch:focus-visible + .math-1099-switch-ui {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.math-1099-note {
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  font-family: var(--font-ibm-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-align: center;
+}
+
 /* Offer */
 .offer-grid {
   display: grid;
@@ -1086,8 +1264,12 @@ footer,
     grid-template-columns: 1fr;
   }
 
-  .math-calculator-inputs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .math-calc-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .math-inputs-mode {
+    grid-template-columns: 1fr;
   }
 
   .math-col-divider {
@@ -1138,7 +1320,7 @@ footer,
     align-items: flex-start;
   }
 
-  .math-calculator-inputs {
+  .math-calc-inputs {
     grid-template-columns: 1fr;
   }
 
